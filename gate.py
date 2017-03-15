@@ -28,6 +28,7 @@ params = (
 #Enter the url of the subject. Here: Aptitude
 r = requests.get('http://eclassesbyravindra.com/course/view.php', headers=headers, params=params, cookies=cookies)
 soup =  BeautifulSoup(r.content, "html.parser")
+subject = soup.find("div",{"id":"page-header"}).h1.get_text()
 
 #All the topics in that subject. Here: 34
 all_topics = soup.find("div",{"class":"course-content"}).find_all('a')
@@ -41,7 +42,7 @@ for i in xrange(0, len(all_topics)):
 	topic_name = all_topics[i].get_text()
 	topic_num = re.findall("\d*$",all_topics[i]['href'])[0]
 	try:
-		os.mkdir("D:\\Videos\\GATE\\Aptitude\\"+topic_num.strip()+" "+topic_name.strip())
+		os.mkdir("D:\\Videos\\GATE\\"+subject.strip()+"\\"+topic_num.strip()+" "+topic_name.strip())
 	except:
 		pass
 	k = requests.get(topic_link, headers=headers, cookies=cookies)
@@ -76,25 +77,8 @@ for i in xrange(0, len(all_topics)):
 		print cur_name
 		print cur_link
 		
-		with open("D:\\Videos\\GATE\\Aptitude\\"+topic_num.strip()+" "+topic_name.strip()+"\\"+textfile,"a") as f:
+		with open("D:\\Videos\\GATE\\"+subject.strip()+"\\"+topic_num.strip()+" "+topic_name.strip()+"\\"+textfile,"a") as f:
 			f.write(str(j+1) + " " + cur_name)
 			f.write("\n")
 			f.write(cur_link)
 			f.write("\n\n")
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-#NB. Original query string below. It seems impossible to parse and
-#reproduce query strings 100% accurately so the one below is given
-#in case the reproduced version is not "correct".
-# requests.get('http://eclassesbyravindra.com/course/view.php?id=26', headers=headers, cookies=cookies)
