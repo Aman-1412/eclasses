@@ -3,6 +3,8 @@
 Python2 compatible for the moment
 
 HOW To:
+Download this repo and install the requirements using
+    python -m pip install -r requirements.txt
 
 ##Open gate.py and insert the value of cookie in 5th line
 
