@@ -20,6 +20,8 @@ headers = {
     'Cache-Control': 'max-age=0',
 }
 
+#Replace this number with 'id' of the subject you are scraping
+#26 is for aptitude
 params = (
     ('id', '26'),
 )
@@ -30,7 +32,7 @@ soup =  BeautifulSoup(r.content, "html.parser")
 #All the topics in that subject. Here: 34
 all_topics = soup.find("div",{"class":"course-content"}).find_all('a')[1:]
 
-for i in xrange(5,7):
+for i in xrange(0, len(all_topics)):
 	#URL for each topic and some extra information
 	#Example: http://eclassesbyravindra.com/course/view.php?id=26&section=10
 	#Example: Partnership
