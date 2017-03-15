@@ -59,10 +59,10 @@ for i in xrange(0, len(all_topics)):
 		# print len(ksoup.find_all("ul",{"class":"section img-text"}))
 		
 		#Example:  http://eclassesbyravindra.com/mod/page/view.php?id=2499
-		subtopic_link = ksoup.find_all("ul",{"class":"section img-text"})[1].find_all('a')[j]['href']
+		subtopic_link = all_subtopics[j]['href']
 		
 		#Example:  Introduction to Partnership
-		subtopic_name = ksoup.find_all("ul",{"class":"section img-text"})[1].find_all('a')[j].get_text()
+		subtopic_name = all_subtopics[j].get_text()
 		
 		v = requests.get(subtopic_link, headers=headers, cookies=cookies)
 		vsoup = BeautifulSoup(v.content, "html.parser")

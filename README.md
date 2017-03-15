@@ -67,5 +67,5 @@ downthemall.bat
 
 #Troubleshooting
 
-55 62 65
+55 
 Replace[1] with [0] for Index out of bounds error
