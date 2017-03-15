@@ -19,14 +19,18 @@ headers = {
     'Connection': 'keep-alive',
     'Cache-Control': 'max-age=0',
 }
-
+proxy_list = ["https://94.177.230.13:4646","http://185.43.210.238:80","https://185.106.121.94:1080","https://5.2.69.102:1080","https://5.2.69.100:1080","http://138.201.186.128:80","https://96.47.235.3:1080","http://121.193.143.249:80","http://200.229.202.72:8080","https://72.11.151.14:1080"]
+proxies = {
+  'http': random.choice(proxy_list),
+  'https': random.choice(proxy_list),
+}
 #Replace this number with 'id' of the subject you are scraping
 #26 is for aptitude
 params = (
     ('id', '26'),
 )
 #Enter the url of the subject. Here: Aptitude
-r = requests.get('http://eclassesbyravindra.com/course/view.php', headers=headers, params=params, cookies=cookies)
+r = requests.get('http://eclassesbyravindra.com/course/view.php', headers=headers, params=params, cookies=cookies,proxies=proxies)
 soup =  BeautifulSoup(r.content, "html.parser")
 subject = soup.find("div",{"id":"page-header"}).h1.get_text()
 
@@ -45,7 +49,7 @@ for i in xrange(0, len(all_topics)):
 		os.mkdir("D:\\Videos\\GATE\\"+subject.strip()+"\\"+topic_num.strip()+" "+topic_name.strip())
 	except:
 		pass
-	k = requests.get(topic_link, headers=headers, cookies=cookies)
+	k = requests.get(topic_link, headers=headers, cookies=cookies,proxies=proxies)
 	ksoup = BeautifulSoup(k.content, "html.parser")
 	
 	#DEBUGGING
@@ -64,7 +68,7 @@ for i in xrange(0, len(all_topics)):
 		#Example:  Introduction to Partnership
 		subtopic_name = all_subtopics[j].get_text()
 		
-		v = requests.get(subtopic_link, headers=headers, cookies=cookies)
+		v = requests.get(subtopic_link, headers=headers, cookies=cookies,proxies=proxies)
 		vsoup = BeautifulSoup(v.content, "html.parser")
 		
 		#Text file in which the links are stored
