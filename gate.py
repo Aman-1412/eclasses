@@ -51,7 +51,7 @@ for i in xrange(0, len(all_topics)):
 	# print len(soup.find_all("ul",{"class":"section img-text"}))
 	
 	#All the subtopics in the chosen topic. Each subtopic contains 1 video
-	all_subtopics = ksoup.find_all("ul",{"class":"section img-text"})[0].find_all('a')
+	all_subtopics = ksoup.find_all("ul",{"class":"section img-text"})[1].find_all('a')
 	for j in xrange(len(all_subtopics)):
 	
 		#DEBUGGING

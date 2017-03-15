@@ -62,3 +62,10 @@ Files you will need:
 gate.py
 refinedlinks.py
 downthemall.bat
+
+
+
+#Troubleshooting
+
+52 59 62
+Replace[1] with [0] for Index out of bounds error
