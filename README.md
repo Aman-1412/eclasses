@@ -1,5 +1,6 @@
 # eclasses
 
+Python2 compatible for the moment
 
 HOW To:
 
