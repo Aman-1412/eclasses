@@ -1,0 +1,1 @@
+youtube-dl -v -f "bestvideo[height<=480]+bestaudio/best[height<=480]" --batch-file="ready.txt" --referer "http://eclassesbyravindra.com/" --max-downloads 1 -cio "%%(autonumber)s-%%(title)s.%%(ext)s"
