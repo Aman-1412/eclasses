@@ -47,7 +47,7 @@ for i in xrange(0, len(all_topics)):
 	topic_name = all_topics[i].get_text()
 	topic_num = re.findall("\d*$",all_topics[i]['href'])[0]
 	try:
-		os.mkdir("D:\\Videos\\GATE\\"+subject.strip()+"\\"+topic_num.strip()+" "+topic_name.strip())
+		os.mkdir("D:\\Videos\\GATE\\Set Theory and Algebra\\"+topic_num.strip()+" "+topic_name.strip())
 	except:
 		pass
 	k = requests.get(topic_link, headers=headers, cookies=cookies,proxies=proxies)
@@ -85,7 +85,7 @@ for i in xrange(0, len(all_topics)):
 		print cur_name
 		print cur_link
 		
-		with open("D:\\Videos\\GATE\\"+subject.strip()+"\\"+topic_num.strip()+" "+topic_name.strip()+"\\"+textfile,"a") as f:
+		with open("D:\\Videos\\GATE\\Set Theory and Algebra\\"+topic_num.strip()+" "+topic_name.strip()+"\\"+textfile,"a") as f:
 			f.write(str(j+1) + " " + cur_name)
 			f.write("\n")
 			f.write(cur_link)
