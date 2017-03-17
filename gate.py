@@ -23,7 +23,7 @@ headers = {
 proxy_list = ["https://94.177.230.13:4646","http://185.43.210.238:80","https://185.106.121.94:1080","https://5.2.69.102:1080","https://5.2.69.100:1080","http://138.201.186.128:80","https://96.47.235.3:1080","http://121.193.143.249:80","http://200.229.202.72:8080","https://72.11.151.14:1080"]
 proxies = {
   'http': random.choice(proxy_list),
-  'https': random.choice(proxy_list),
+  # 'https': random.choice(proxy_list),
 }
 #Replace this number with 'id' of the subject you are scraping
 #26 is for aptitude
